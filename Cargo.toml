@@ -1,0 +1,44 @@
+[[bin]]
+name = "client"
+path = "src/client.rs"
+
+[[bin]]
+name = "server"
+path = "src/main.rs"
+
+
+[package]
+name = "QUIC-demo"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+# Flexible error handling with context and chaining support
+anyhow = "1.0.100"
+
+# Efficient abstraction for working with byte buffers (used for network data)
+bytes = "1.11.0"
+
+# Async abstractions like streams, sinks, and combinators for async programming
+futures = "0.3.31"
+
+# HTTP/3 protocol implementation built on top of QUIC
+h3 = "0.0.8"
+
+# Adapter that integrates h3 (HTTP/3) with the quinn QUIC library
+h3-quinn = "0.0.10"
+
+# HTTP types like Request, Response, Headers (works with h3 for HTTP/3)
+http = "1.4.0"
+
+# QUIC protocol implementation in pure Rust (the core transport layer)
+quinn = "0.11.9"
+
+# X.509 certificate generation (for creating self-signed TLS certs)
+rcgen = "0.14.6"
+
+# Modern TLS library in pure Rust (used by quinn for secure connections)
+rustls = {version = "0.23.36", features = ["aws_lc_rs"]}
+
+# Async runtime for Rust (powers all async/await operations)
+tokio = {version = "1.49.0", features = ["full"]}
